@@ -10,7 +10,16 @@ class SplashscreenView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Image.asset("assets/chatlogo.png"), Text("Make A Chat")],
+          children: [
+            Image.asset(
+              "assets/chatlogo.png",
+              width: MediaQuery.of(context).size.width / 8,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 20,
+            ),
+            Text("Make A Chat")
+          ],
         ),
       ),
     );
