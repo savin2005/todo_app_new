@@ -6,6 +6,7 @@ import 'package:todo_app_new/model/utils/appcolor.dart';
 import 'package:todo_app_new/model/utils/appicons.dart';
 import 'package:todo_app_new/model/utils/appservices.dart';
 import 'package:todo_app_new/view/auth/signup_screen.dart';
+import 'package:todo_app_new/view/screen/homescreen.dart';
 
 class LoginScreenView extends StatefulWidget {
   LoginScreenView({super.key});
@@ -67,13 +68,16 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                CustomTextFormField(
-                    hintstyle: AppServices.fs13white,
-                    prefixIcon: Icon(Icons.perm_contact_cal_outlined,
-                        color: AppColor.white),
-                    radius: 1,
-                    controller: email,
-                    hintText: "fazzzil72@gmail.com"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 13,
+                  child: CustomTextFormField(
+                      hintstyle: AppServices.fs13white,
+                      prefixIcon: Icon(Icons.perm_contact_cal_outlined,
+                          color: AppColor.white),
+                      radius: 1,
+                      controller: email,
+                      hintText: "fazzzil72@gmail.com"),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 20,
                 ),
@@ -84,23 +88,26 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                CustomTextFormField(
-                    obscureText: isvisible,
-                    icon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isvisible = !isvisible;
-                          });
-                        },
-                        icon: Icon(isvisible == false
-                            ? Icons.visibility
-                            : Icons.visibility_off)),
-                    hintstyle: AppServices.fs13white,
-                    prefixIcon:
-                        Icon(Icons.lock_outlined, color: AppColor.white),
-                    radius: 1,
-                    controller: password,
-                    hintText: "********"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 13,
+                  child: CustomTextFormField(
+                      obscureText: isvisible,
+                      icon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isvisible = !isvisible;
+                            });
+                          },
+                          icon: Icon(isvisible == false
+                              ? Icons.visibility
+                              : Icons.visibility_off)),
+                      hintstyle: AppServices.fs13white,
+                      prefixIcon:
+                          Icon(Icons.lock_outlined, color: AppColor.white),
+                      radius: 1,
+                      controller: password,
+                      hintText: "********"),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 400,
                 ),
@@ -127,7 +134,11 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                       "Login",
                       style: AppServices.fs16boldblack,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => HomescreenScreenView(),
+                      ));
+                    },
                   ),
                 ),
                 SizedBox(

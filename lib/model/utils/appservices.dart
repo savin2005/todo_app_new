@@ -5,6 +5,12 @@ import 'package:todo_app_new/model/utils/appcolor.dart';
 class AppServices {
   static TextStyle fs13white =
       GoogleFonts.playfair(fontSize: 13, color: AppColor.white);
+  static TextStyle fs11white =
+      GoogleFonts.playfair(fontSize: 11, color: AppColor.white);
+  static TextStyle fs11black =
+      GoogleFonts.playfair(fontSize: 11, color: AppColor.black);
+  static TextStyle fs13grey =
+      GoogleFonts.playfair(fontSize: 13, color: AppColor.grey);
   static TextStyle fs16 = GoogleFonts.playfair(fontSize: 15);
   static TextStyle fs16white =
       GoogleFonts.playfair(fontSize: 15, color: AppColor.white);
@@ -18,6 +24,8 @@ class AppServices {
       GoogleFonts.playfair(color: AppColor.primarycolor, fontSize: 13);
   static TextStyle fs20white =
       GoogleFonts.playfair(fontSize: 20, color: AppColor.white);
+  static TextStyle fs20black =
+      GoogleFonts.playfair(fontSize: 20, color: AppColor.black);
   static TextStyle fs16primary =
       GoogleFonts.playfair(fontSize: 15, color: AppColor.primarycolor);
   static TextStyle fs35primary =

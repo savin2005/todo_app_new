@@ -18,6 +18,7 @@ class SignupScreenView extends StatefulWidget {
 class _SignupScreenViewState extends State<SignupScreenView> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController name = TextEditingController();
   final CheckboxController checkboxController = Get.put(CheckboxController());
   bool isvisible = false;
   @override
@@ -68,15 +69,18 @@ class _SignupScreenViewState extends State<SignupScreenView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                CustomTextFormField(
-                    hintstyle: AppServices.fs13white,
-                    prefixIcon: Icon(
-                      Icons.person_2_outlined,
-                      color: AppColor.white,
-                    ),
-                    radius: 1,
-                    controller: email,
-                    hintText: "Fazil Laghari"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 13,
+                  child: CustomTextFormField(
+                      hintstyle: AppServices.fs13white,
+                      prefixIcon: Icon(
+                        Icons.person_2_outlined,
+                        color: AppColor.white,
+                      ),
+                      radius: 1,
+                      controller: name,
+                      hintText: "Fazil Laghari"),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 20,
                 ),
@@ -87,13 +91,16 @@ class _SignupScreenViewState extends State<SignupScreenView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                CustomTextFormField(
-                    hintstyle: AppServices.fs13white,
-                    prefixIcon: Icon(Icons.perm_contact_cal_outlined,
-                        color: AppColor.white),
-                    radius: 1,
-                    controller: email,
-                    hintText: "fazzzil72@gmail.com"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 13,
+                  child: CustomTextFormField(
+                      hintstyle: AppServices.fs13white,
+                      prefixIcon: Icon(Icons.perm_contact_cal_outlined,
+                          color: AppColor.white),
+                      radius: 1,
+                      controller: email,
+                      hintText: "fazzzil72@gmail.com"),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 20,
                 ),
@@ -104,23 +111,26 @@ class _SignupScreenViewState extends State<SignupScreenView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                CustomTextFormField(
-                    obscureText: isvisible,
-                    icon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isvisible = !isvisible;
-                          });
-                        },
-                        icon: Icon(isvisible == false
-                            ? Icons.visibility
-                            : Icons.visibility_off)),
-                    hintstyle: AppServices.fs13white,
-                    prefixIcon:
-                        Icon(Icons.lock_outlined, color: AppColor.white),
-                    radius: 1,
-                    controller: password,
-                    hintText: "********"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 13,
+                  child: CustomTextFormField(
+                      obscureText: isvisible,
+                      icon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isvisible = !isvisible;
+                            });
+                          },
+                          icon: Icon(isvisible == false
+                              ? Icons.visibility
+                              : Icons.visibility_off)),
+                      hintstyle: AppServices.fs13white,
+                      prefixIcon:
+                          Icon(Icons.lock_outlined, color: AppColor.white),
+                      radius: 1,
+                      controller: password,
+                      hintText: "********"),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 400,
                 ),
@@ -135,14 +145,26 @@ class _SignupScreenViewState extends State<SignupScreenView> {
                               (states) {
                             // ignore: deprecated_member_use
                             if (states.contains(MaterialState.selected)) {
-                              return AppColor.primarycolor;
-                            } else {
                               return Colors.transparent;
+                            } else {
+                              return AppColor.black;
+                              ;
                             }
                           }),
                           side: BorderSide(
-                              color: AppColor.primarycolor, width: 2),
-                        ))
+                              color: checkboxController.isChecked.value == true
+                                  ? AppColor.primarycolor
+                                  : AppColor.primarycolor,
+                              width: 2),
+                        )),
+                    Text.rich(TextSpan(children: [
+                      TextSpan(
+                          text: "I have read & agreed to DayTask",
+                          style: AppServices.fs13secondary),
+                      TextSpan(
+                          text: " Privacy Policy,\nTerms & Condition",
+                          style: AppServices.fs13primary)
+                    ]))
                   ],
                 ),
                 SizedBox(
@@ -155,7 +177,7 @@ class _SignupScreenViewState extends State<SignupScreenView> {
                     textColor: AppColor.black,
                     color: AppColor.primarycolor,
                     text: Text(
-                      "Login",
+                      "Sign Up",
                       style: AppServices.fs16boldblack,
                     ),
                     onPressed: () {},
@@ -217,9 +239,9 @@ class _SignupScreenViewState extends State<SignupScreenView> {
                 Align(
                   child: Text.rich(TextSpan(children: [
                     TextSpan(
-                        text: "Don’t have an account? ",
+                        text: "Already have an account? ",
                         style: AppServices.fs13secondary),
-                    TextSpan(text: "Sign Up", style: AppServices.fs13primary)
+                    TextSpan(text: "Login", style: AppServices.fs13primary)
                   ])),
                 )
               ],

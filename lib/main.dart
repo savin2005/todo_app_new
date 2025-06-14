@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app_new/view/screen/homescreen.dart';
 import 'package:todo_app_new/view/splashscreen/splashscreen.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
-      home: SplashscreenView(),
+      home: HomescreenScreenView(),
     );
   }
 }

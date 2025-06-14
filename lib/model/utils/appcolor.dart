@@ -5,5 +5,6 @@ class AppColor {
   static Color secondarycolor = Color(0xff8CAAB9);
   static Color white = Color(0xffFFFFFF);
   static Color black = Colors.black;
+  static Color grey = Colors.grey;
   static Color contianercolor = Color(0xff455A64);
 }
