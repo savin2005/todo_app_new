@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:todo_app_new/model/components/button.dart';
 import 'package:todo_app_new/model/utils/appcolor.dart';
@@ -6,8 +8,20 @@ import 'package:todo_app_new/model/utils/appservices.dart';
 
 import 'package:todo_app_new/view/auth/login_screen.dart';
 
-class SplashscreenView extends StatelessWidget {
+class SplashscreenView extends StatefulWidget {
   const SplashscreenView({super.key});
+
+  @override
+  State<SplashscreenView> createState() => _SplashscreenViewState();
+}
+
+class _SplashscreenViewState extends State<SplashscreenView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 3), () {});
+  }
 
   @override
   Widget build(BuildContext context) {

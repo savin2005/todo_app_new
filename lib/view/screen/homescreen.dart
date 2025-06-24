@@ -85,8 +85,10 @@ class HomescreenScreenView extends StatelessWidget {
                   style: AppServices.fs16primary,
                 )
               ],
-            ),
-            Expanded(
+            ),Gap.vartical(MediaQuery.of(context).size.height / 40),
+
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 5,
               child: ListView.separated(
                 separatorBuilder: (context, index) {
                   return Gap.horizontal(MediaQuery.of(context).size.width / 20);
